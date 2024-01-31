@@ -10,15 +10,24 @@ pipeline {
                 }
         }
 
-	stage('Build') {
-            steps {
-		// This step should not normally be used in your script. Consult the inline help for details.
-			withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
-  			  sh 'docker build -t huyenmy44/hoc_jenkins_github_buil_auto:version1 .'
-			  sh 'docker push huyenmy44/hoc_jenkins_github_buil_auto:version1'
-			}
-                
-                }
+		
+stage('Build') {
+    steps {
+        // This step should not normally be used in your script. Consult the inline help for details.
+        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
+            script {
+                // Thay thế lệnh nohup bằng start /B
+                bat 'docker build -t huyenmy44/hoc_jenkins_github_buil_auto:version1 .'
+                bat 'docker push huyenmy44/hoc_jenkins_github_buil_auto:version1'
+            }
         }
     }
 }
+
+
+
+    }
+}
+
+
+
