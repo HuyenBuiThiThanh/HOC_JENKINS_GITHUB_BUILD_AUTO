@@ -19,7 +19,7 @@ stage('Build') {
                 // Thay thế lệnh nohup bằng start /B
                 bat 'docker build -t huyenmy44/hoc_jenkins_github_buil_auto:version1 .'
                 bat 'docker push huyenmy44/hoc_jenkins_github_buil_auto:version1'
-		bat 'docker run --name exam01 -p  5000:5000 huyenmy44/hoc_jenkins_github_buil_auto:version1'
+		
             }
         }
     }
